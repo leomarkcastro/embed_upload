@@ -2,15 +2,15 @@
 
 FROM node:18.19-alpine3.17
 
-ARG NEXT_PUBLIC_BASEURL
-ENV NEXT_PUBLIC_BASEURL=$NEXT_PUBLIC_BASEURL
-
 # Create App Directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Install Dependencies
 COPY package*.json ./
+
+ARG NEXT_PUBLIC_BASEURL
+ENV NEXT_PUBLIC_BASEURL=$NEXT_PUBLIC_BASEURL
 
 RUN npm install
 
