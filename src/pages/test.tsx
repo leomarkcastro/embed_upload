@@ -13,7 +13,10 @@ export default function App() {
   }, []);
   return (
     <div className="flex items-center justify-center w-screen h-screen bg-white">
-      <iframe src="/" className="w-[60vw] h-[60vh]" />
+      <iframe
+        src="https://dmcc-uploader.int2.lv-aws-x3.xyzapps.xyz"
+        className="w-[60vw] h-[60vh]"
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 export const uploadMedia = async (file: File) => {
   try {
     // POST request to backend route handler
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/s3/ps`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/api/s3/ps`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
