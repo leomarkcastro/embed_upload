@@ -1,10 +1,12 @@
-import { Client } from "minio";
+import { Client, ClientOptions } from "minio";
 
-const client = new Client({
-  endPoint: "file-asia-se-01-api.db.srv01.xyzapps.xyz",
-  accessKey: "XgINBhIQbVqlEOUR",
-  secretKey: "VEGpqq54DmIFBpgSW7TlQkjLQcjPAOnG",
-});
+const ClientOpts: ClientOptions = {
+  accessKey: process.env.S3_ACCESS_KEY ?? "",
+  secretKey: process.env.S3_SECRET_KEY ?? "",
+  endPoint: process.env.S3_ENDPOINT ?? "",
+};
+
+const client = new Client(ClientOpts);
 
 export const getPresignedUrl = async (
   objectName: string,
