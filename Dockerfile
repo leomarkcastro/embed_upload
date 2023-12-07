@@ -2,7 +2,7 @@
 
 FROM node:18.19-alpine3.17
 
-ARG NODE_ENV=production
+ARG NODE_ENV=development
 
 # Create App Directory
 RUN mkdir -p /usr/src/app
@@ -16,9 +16,9 @@ RUN npm install install
 # Copy app source code
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
 # Exports
 EXPOSE 3000
 
-CMD [ "yarn", "start" ]
+CMD [ "npm", "run", "start" ]
