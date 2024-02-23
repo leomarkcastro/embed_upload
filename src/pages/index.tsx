@@ -29,7 +29,13 @@ export default function Home() {
     }
     if (window.top && window.top !== window.self) {
       window.top.postMessage(
-        `uploadr-onupload::${JSON.stringify(collectedUploads)}`,
+        {
+          source: "uploadr",
+          eventName: "v1.uploadr.uploadComplete",
+          data: {
+            uploads: collectedUploads,
+          },
+        },
         "*"
       );
     }
@@ -51,7 +57,14 @@ export default function Home() {
                 setTotalProgress(0);
                 setIsUploading(false);
                 if (window.top && window.top !== window.self) {
-                  window.top.postMessage(`uploadr-close`, "*");
+                  window.top.postMessage(
+                    {
+                      source: "uploadr",
+                      eventName: "v1.uploadr.close",
+                      data: {},
+                    },
+                    "*"
+                  );
                 }
               }}
             >
