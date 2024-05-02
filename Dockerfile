@@ -20,6 +20,6 @@ COPY . .
 RUN npm run build
 
 # Exports
-EXPOSE 3000
+EXPOSE 80
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start", "-p", "80" ]
